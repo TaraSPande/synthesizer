@@ -1,0 +1,6 @@
+*.pkl
+__pycache__/
+*.env
+*.log
+*.chkpt
+runs/
