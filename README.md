@@ -31,8 +31,12 @@ python -m evaluation.ppl_test
 ```
 
 ## Finetune Examples
-- `python finetune.py --ckpt runs/cnn_dailymail-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251104_083232/epoch50 --data_key agnews --epochs 2 --batch_size 128 --lr 1e-4`
-- `python finetune.py --ckpt runs/lm1b-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251023_222923/epoch7 --data_key personachat --epochs 5 --batch_size 64 --lr 2e-4`
+```
+python finetune.py --ckpt runs/cnn_dailymail-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251104_083232/epoch50 --data_key agnews --epochs 2 --batch_size 128 --lr 1e-4 -warmup_steps 4000 --freeze_embeddings --freeze_encoder
+```
+```
+python finetune.py --ckpt runs/lm1b-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251023_222923/epoch7 --data_key personachat --epochs 5 --batch_size 64 --lr 2e-4 -warmup_steps 8000 --n_layers_dec 8 --d_model 384 --n_heads 6
+```
 
 ## Results
 ### English -> German Translation
