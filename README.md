@@ -28,6 +28,7 @@ pip install -r environments/requirements.txt
 python -m evaluation.rougel_test
 python -m evaluation.bleu_test
 python -m evaluation.ppl_test
+python -m evaluation.acc_test
 ```
 
 ## Finetune Examples
