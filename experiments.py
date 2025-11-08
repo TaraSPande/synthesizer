@@ -237,4 +237,39 @@ EXPERIMENTS: List[Experiment] = [
     # Multi-task finetune C4 model with all GLUE + SuperGLUE datasets
     # Table 6 - SuperGLUE
     # Multi-task finetune C4 model with all GLUE + SuperGLUE datasets
+
+    # Table 7 - Classification
+    Experiment(
+        name="agnews_vanilla",
+        data_key="agnews",
+        attn_self_enc="vanilla",
+        attn_self_dec="vanilla",
+        attn_cross="vanilla",
+        spm32k=True,
+        lr=5e-4,
+        epochs=2,
+        warmup_steps=1000
+    ),
+    Experiment(
+        name="agnews_dense",
+        data_key="agnews",
+        attn_self_enc="synth_dense",
+        attn_self_dec="synth_dense",
+        attn_cross="synth_dense",
+        spm32k=True,
+        lr=5e-4,
+        epochs=2,
+        warmup_steps=1000
+    ),
+    Experiment(
+        name="agnews_random",
+        data_key="agnews",
+        attn_self_enc="synth_random",
+        attn_self_dec="synth_random",
+        attn_cross="synth_random",
+        spm32k=True,
+        lr=5e-4,
+        epochs=2,
+        warmup_steps=1000
+    ),
 ]
