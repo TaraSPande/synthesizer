@@ -35,13 +35,13 @@ python -m evaluation.ppl_test
 - Seq2Seq (encoder-decoder model)
 - Dataset: WMT14-ende
 - Evaluation: BLEU
-- 7 epochs, 35k warmup, 246575 steps, Noam Scheduler (0.5 scale), GPT-2 tokenizer
+- 7 epochs, 35k warmup, 246575 steps, Noam Scheduler (0.5 scale), SP32k tokenizer
 
 ### Language Modeling
 - CLM (decoder-only model)
 - Dataset: LM1B
 - Evaluation: PPL
-- 5 epochs, 4k warmup, 1183635 steps, LR=5e-4 (cosine scheduler), SP32k tokenizer
+- 5 epochs, 4k warmup, 1183635 steps, LR=5e-4 (cosine scheduler), GPT-2 tokenizer
 
 ### Summarization
 - Seq2Seq (encoder-decoder model)
@@ -49,15 +49,19 @@ python -m evaluation.ppl_test
 - Evaluation: ROUGE-L
 - 50 epochs, 30k warmup, 112200 steps, Noam Scheduler (0.5 scale), SP32k tokenizer
 
+### Classification
+- MLM (encoder-only model)
+- Dataset: AG_News
+- Evaluation: Accuracy
+- 2 epochs, 1k warmup, 1876 steps, LR=5e-4 (cosine scheduler), SP32k tokenizer
+
 ### Validation Set Scores
 
-|  | BLEU | ROUGE-L | PPL |
-|----|----|----|----|
-| Vanilla | 27.01 | 19.64 | 38.85 |
-| Dense | 23.06 | 15.34 | 35.96 |
-| Random | 21.09 | 18.00 | 37.53 |
+|  | BLEU | ROUGE-L | PPL | Acc |
+|----|----|----|----|----|
+| Vanilla | 27.01 | 19.64 | 38.85 | 89.30% |
+| Dense | 23.06 | 15.34 | 35.96 | 88.95% | 
+| Random | 21.09 | 18.00 | 37.53 | 89.00% |
 
 - dense-vanilla hybrid and random-vanilla hybrid attention models also available
 - GLUE, SuperGLUE, PersonaChat, C4, WMT14-enfr datasets also available
-- MLM Classification (encoder-only) task also available
-
