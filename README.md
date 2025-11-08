@@ -21,7 +21,7 @@ pip install -r environments/requirements.txt
 - Preview the experiment suite: `python main.py --dry-run`
 - Run suite subset (manually specify): `python main.py --only wmt14_dense,lm1b_random`
 
-- Checkpoints are added to \<path\>/synthesizer/runs/\<model\>/\<epoch\>
+- Checkpoints are added to \<path\>/synthesizer/runs/\<model_YYYYMMDD_HHMMSS\>/\<epoch\>
 
 ## Evaluation
 ```
@@ -32,11 +32,12 @@ python -m evaluation.ppl_test
 
 ## Finetune Examples
 ```
-python finetune.py --ckpt runs/cnn_dailymail-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251104_083232/epoch50 --data_key agnews --epochs 2 --batch_size 128 --lr 1e-4 -warmup_steps 4000 --freeze_embeddings --freeze_encoder
+python finetune.py --ckpt runs/cnn_dailymail-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251104_083232/epoch50 --data_key agnews --epochs 2 --batch_size 128 --lr 1e-4 --warmup_steps 4000
 ```
 ```
-python finetune.py --ckpt runs/lm1b-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251023_222923/epoch7 --data_key personachat --epochs 5 --batch_size 64 --lr 2e-4 -warmup_steps 8000 --n_layers_dec 8 --d_model 384 --n_heads 6
+python finetune.py --ckpt runs/lm1b-enc6dec6-d512h8-vanilla.vanilla.vanilla_20251023_222923/epoch5 --data_key personachat --epochs 5 --batch_size 64 --lr 2e-4 --warmup_steps 8000 --max_len 256
 ```
+- Checkpoints are added to \<path\>/synthesizer/runs/\<model_finetune_YYYYMMDD_HHMMSS\>/\<epoch\>
 
 ## Results
 ### English -> German Translation
