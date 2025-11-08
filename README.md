@@ -59,4 +59,5 @@ python -m evaluation.ppl_test
 
 - dense-vanilla hybrid and random-vanilla hybrid attention models also available
 - GLUE, SuperGLUE, PersonaChat, C4, WMT14-enfr datasets also available
+- MLM Classification (encoder-only) task also available
 
