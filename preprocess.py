@@ -236,6 +236,13 @@ DATA_REGISTRY: Dict[str, DataConfig] = {
         dataset_config="wsc", text_fields=("text", "span1_text", "span2_text"), label_field="label",
         split_train="train", split_val="validation"
     ),
+
+    # Classification
+    "agnews": DataConfig(
+        name="agnews", task_type=TaskType.CLASSIFICATION, dataset_id="fancyzhx/ag_news",
+        dataset_config=None, text_fields=("text",), label_field="label",
+        split_train="train", split_val="test"
+    ),
 }
 
 @dataclass
